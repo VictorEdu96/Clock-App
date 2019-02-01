@@ -1,6 +1,8 @@
 function getDeviceHour() {
   var fecha = new Date();
-  document.getElementById('deviceHour').innerHTML = fecha;
+  let date;
+  date = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+  document.getElementById('deviceHour').innerHTML = date;
 }
 
 function getServerHour() {
@@ -9,7 +11,7 @@ function getServerHour() {
     return response.json();
   })
   .then(function(myJson) {
-    // console.log(JSON.stringify(myJson));
+    //console.log(JSON.stringify(myJson));
     var fecha = desJSON(myJson);
     document.getElementById('serverHour').innerHTML = fecha;
   });
@@ -23,7 +25,6 @@ function desJSON(jsonObj){
   date = String(hour) + ":" + String(minutes) + ":" + String(seconds);
   return date;
 }
-
 
 setInterval(getDeviceHour,1000)
 setInterval(getServerHour,1000)
