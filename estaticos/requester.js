@@ -9,7 +9,7 @@ function getDeviceHour() {
 //Getting the hour via a request made to the server.
 //Using fetch to get a response and convert it to JSON
 function getServerHour() {
-  fetch('http://localhost:3000/srvhour')
+  fetch('http://192.168.33.20:3000/srvhour')
     .then(function(response) {
       return response.json();
     })
